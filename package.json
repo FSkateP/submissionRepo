@@ -1,0 +1,33 @@
+{
+  "name": "vueapp",
+  "version": "1.0.0",
+  "description": " App to run server locally on Pc",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FSkateP/vuePractice.git"
+  },
+  "keywords": [
+    "vue",
+    "js",
+    "html",
+    "and",
+    "javascript.",
+    "Github",
+    "API",
+    "v3.npm"
+  ],
+  "author": "Nobuhle Mazibuko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FSkateP/vuePractice/issues"
+  },
+  "homepage": "https://github.com/FSkateP/vuePractice#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
