@@ -1,10 +1,6 @@
 
-//Display Repo's for user 
+//Displays Repo's for user  
 var apiURL = 'https://api.github.com/users/devlinpadayachee/repos?per_page=100'
-/**
- * Actual demo
- */
-
 var demo = new Vue({
 
     el: '#showRepo',
@@ -37,7 +33,7 @@ var demo = new Vue({
         showData: function () {
             var xhr = new XMLHttpRequest()
             var self = this
-            xhr.open('GET', apiURL + self.currentBranch)
+            xhr.open('GET', apiURL)
             xhr.onload = function () {
                 self.repos = JSON.parse(xhr.responseText)
                 console.log(self.repos[0].clone_url)
@@ -49,12 +45,10 @@ var demo = new Vue({
 
 
 
-var apiURL = 'https://api.github.com/users/devlinpadayachee/commits?per_page=3&sha='
-
 /**
- * Actual demo
+ * Vue commit messages on button press
  */
-
+var apiURL = 'https://api.github.com/users/devlinpadayachee/commits?per_page=3&sha='
 var commit = new Vue({
 
     el: '#commit',
