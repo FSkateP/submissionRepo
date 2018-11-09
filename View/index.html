@@ -14,41 +14,27 @@
     <div class="container">
         <div id="banner-message">
             <!--This area displays list of repos for use-->
-            <div id="showRepo">
-
-                <h3>View Devlin padayachee's repos</h3>
-
-                <template v-for="branch in branches">
-                    <input type="radio" :id="branch" :value="branch" name="branch" v-model="currentBranch">
-                    <label :for="branch">{{ branch }}</label>
-                </template>
-                <p>users/user@{{ currentBranch }}</p>
-
-                <ul>
-                    <li v-for="record in repos">
-                        <a :href="record.clone_url" target="_blank" class="commit">{{ record.clone_url}}</a>
-                        - <span class="message">{{ record.name | truncate }}</span>by
-                        <span class="author"><a :href="record.author.clone_url" target="_blank">
-                                {{ record.description }}</a></span>
-
-                    </li>
-                    <button v-on:click="showData()">Display commits</button>
-
-                </ul>
-            </div>
+		<h3>View Devlin padayachee's repos</h3>
+        <div id="showRepo">
+		<template  v-for="repo in repos">
+			
+			</template>
+			<li>
+			<a :href="repo.html_url" target="_blank">{{ repo.name}}</a>
+			<button v-on:click="">Display commits</button>
+			</li>
+         </div> 
 
 
-            <!--This area displays list of repos for use-->
+            <!--This area displays list of commits for repo-->
             <div id="commit">
                 <h3>Latest Vue.js Commits</h3>
                 <template v-for="branch in branches">
-                    <input type="radio" :id="branch" :value="branch" name="branch" v-model="currentBranch">
-                    <label :for="branch">{{ branch }}</label>
                 </template>
-                <p>vuejs/vue@{{ currentBranch }}</p>
+               
                 <ul>
                     <li v-for="record in commits">
-                        <a :href="record.html_url" target="_blank" class="commit">{{ record.sha.slice(0, 7) }}</a>
+                        <a :href="record.html_url" target="_blank" class="commit">{{ record.sha.slice(0, 4) }}</a>
                         - <span class="message">{{ record.commit.message | truncate }}</span><br> by <span class="author"><a :href="record.author.html_url" target="_blank">{{ record.commit.author.name }}</a></span>
                         at <span class="date">{{ record.commit.author.date | formatDate }}</span>
                     </li>
@@ -59,7 +45,8 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
-    <script src="./main.js"></script>
+	<script src="/main.js"></script>
+	<script src="/repo.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

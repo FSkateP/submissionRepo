@@ -1,54 +1,31 @@
 
-//Displays Repo's for user  
-var apiURL = 'https://api.github.com/users/devlinpadayachee/repos?per_page=100'
-var demo = new Vue({
 
-    el: '#showRepo',
+//Displays Repo's for user  
+var apiURL1 = "https://api.github.com/users/devlinpadayachee/repos"
+var showRepo = new Vue({
+
+    el: "#showRepo",
 
     data: {
-        branches: ['member', 'dev'],
-        currentBranch: 'member',
-        repos: null
+        repos: [],
     },
+	
+	mounted()
+	{
+		fetch("GET", "https://api.github.com/users/devlinpadayachee/repos?per_page=100")
+		.then(response => response.json())
+		.then((data) => {
+		 this.repos = data;
+		})
+	}
 
-    created: function () {
-        this.showData()
-    },
-
-    watch: {
-        currentBranch: 'showData'
-    },
-
-    filters: {
-        truncate: function (v) {
-            var newline = v.indexOf('\n')
-            return newline > 0 ? v.slice(0, newline) : v
-        },
-        formatDate: function (v) {
-            return v.replace(/T|Z/g, ' ')
-        }
-    },
-
-    methods: {
-        showData: function () {
-            var xhr = new XMLHttpRequest()
-            var self = this
-            xhr.open('GET', apiURL)
-            xhr.onload = function () {
-                self.repos = JSON.parse(xhr.responseText)
-                console.log(self.repos[0].clone_url)
-            }
-            xhr.send()
-        }
-    }
-})
-
+});
 
 
 /**
  * Vue commit messages on button press
  */
-var apiURL = 'https://api.github.com/users/devlinpadayachee/commits?per_page=3&sha='
+var apiURL = 'https://api.github.com/repos/devlinpadayachee/contractor_app/commits?per_page=1000&sha='
 var commit = new Vue({
 
     el: '#commit',
