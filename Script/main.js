@@ -12,7 +12,7 @@ var showRepo = new Vue({
 	
 	mounted()
 	{
-		fetch("GET", "https://api.github.com/users/devlinpadayachee/repos?per_page=100")
+		fetch("https://api.github.com/users/devlinpadayachee/repos")
 		.then(response => response.json())
 		.then((data) => {
 		 this.repos = data;
